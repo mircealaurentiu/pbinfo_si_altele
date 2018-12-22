@@ -1,5 +1,6 @@
 import my_stack
 
+# better to have a function that checks the type of open-closed parenthesis
 
 def simple_balanced_parantheses(parantheses_string):
     # a stack as data structure is used
@@ -7,19 +8,27 @@ def simple_balanced_parantheses(parantheses_string):
 
     # process the string of parantheses
     for elem in parantheses_string:
-        if elem == "(":
+        if elem in "([{":
             stack.push(elem)
             # print(elem)
 
-        # if the parantheses is a closing one, we have to chech
+        # if the parentheses is a closing one, we have to chech
         # that we can get the last elem. added out of the stack
         # i.e. stack has at least one element
-        elif elem == ")":
+        # and it is the same type
+        elif elem in ")]}":
             if not stack.isEmpty():
-                stack.pop()
+                if elem==")" and stack.peek()=="(":
+                    stack.pop()
+                elif elem == "]" and stack.peek() == "[":
+                    stack.pop()
+                elif elem == "}" and stack.peek() == "{":
+                    stack.pop()
+                else:
+                    return  False
                 # print(elem)
             else:
-                return False  # there's no opened-closed matching
+                return False  # can't pop from empty stack
 
     return stack.isEmpty()
 
@@ -31,3 +40,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
