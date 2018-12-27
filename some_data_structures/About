@@ -1,0 +1,9 @@
+Here are some (very) basic data structures - implemented in Python.
+This folder will be updated with other data structures and some algorithm implementations.
+
+This folder contains:
+
+* stack
+* queue
+* dequeue
+* linked list - unordered
