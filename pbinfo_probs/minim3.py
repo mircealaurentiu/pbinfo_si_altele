@@ -1,0 +1,5 @@
+x=(raw_input()).split()
+a=int(x[0])
+b=int(x[1])
+c=int(x[2])
+print min(a,b,c)
